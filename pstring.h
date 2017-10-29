@@ -1,5 +1,18 @@
 #pragma once
-#include "CommonHeaders.h"
+#pragma once
+
+#define WIN32_LEAN_AND_MEAN	
+
+#include <tchar.h>
+#include <Strsafe.h>
+#include <string>
+#include <locale>
+
+#include <stdio.h>
+#include <cstdint>
+#include <cstring>
+#include <memory.h>
+
 
 #define PSTR_MAX 64
 
