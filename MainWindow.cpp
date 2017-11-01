@@ -6,8 +6,17 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 
 	case WM_CREATE:
 		break;
-	case WM_SIZE:
-		
+	case WM_SIZE: {
+		//WinDat* temp = mainSplit->GetWinDatA();
+		//if (temp != nullptr) {
+		//	RECT clientRect;
+		//	GetClientRect(temp->_handle, &clientRect);
+		//}
+
+
+
+		//MoveWindow(temp->_handle, mainSplit->_x, mainSplit->_y, clientRect.right, temp->_h, 1);
+		}
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
@@ -52,7 +61,6 @@ void CreateMainWindow(WinDat& wd) {
 	int offsetX = wd._w - (clientRect.right - clientRect.left);
 	int offsetY = wd._h - (clientRect.bottom - clientRect.top);
 	SetWindowPos(wd._handle, NULL, wd._x, wd._y, wd._w + offsetX, wd._h + offsetY, NULL);
-
 	UpdateWindow(wd._handle);
 
 }

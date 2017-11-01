@@ -14,10 +14,12 @@ SplitWindow::SplitWindow(HWND h, SplitType t, int loc){
 	if (_type == SplitType::HORIZONTAL)_divLocY = loc;
 	else if (_type == SplitType::VERTICAL)_divLocX = loc;
 
+	_divSize = 3;
+
 }
 
 SplitWindow::SplitWindow(SplitType t, int loc){
-
+	_divSize = 3;
 	_type = t;
 	if (_type == SplitType::HORIZONTAL)_divLocY = loc;
 	else if (_type == SplitType::VERTICAL)_divLocX = loc;
@@ -97,10 +99,10 @@ void SplitWindow::AttachB(WinDat* wd) {
 	}
 }
 
-WinDat*  SplitWindow::GetWinDatA(WinDat* wd) {
+WinDat*  SplitWindow::GetWinDatA() {
 	return _winDatA;
 }
-WinDat* SplitWindow::GetWinDatB(WinDat* wd) {
+WinDat* SplitWindow::GetWinDatB() {
 	return _winDatB;
 }
 

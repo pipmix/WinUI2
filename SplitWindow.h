@@ -1,6 +1,8 @@
 #pragma once
 #include "WinDat.h"
 
+
+
 struct WinProp {
 	HWND _handle;
 	int _x;
@@ -34,8 +36,8 @@ public:
 	void AttachA(WinDat* wd);
 	void AttachB(WinDat* wd);
 
-	WinDat*  GetWinDatA(WinDat* wd);
-	WinDat*  GetWinDatB(WinDat* wd);
+	WinDat*  GetWinDatA();
+	WinDat*  GetWinDatB();
 
 	int _x = 0;
 	int _y = 0;
@@ -55,9 +57,13 @@ private:
 	HWND _handle1 = nullptr;
 	HWND _handle2 = nullptr;
 
-	int _divSize = 5;
+	int _divSize = 10;
 
-	WinDat* _winDatA;
-	WinDat* _winDatB;
+	WinDat* _winDatA = nullptr;
+	WinDat* _winDatB = nullptr;
 
 };
+
+static SplitWindow* mainSplit;
+
+

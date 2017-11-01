@@ -24,3 +24,14 @@ struct WinDat {
 	DWORD _style = 0;
 };
 
+
+
+struct WindowSettings{
+
+	COLORREF backgroundColor;
+
+
+};
+
+
+static WindowSettings* settings;

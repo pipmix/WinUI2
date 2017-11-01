@@ -7,8 +7,8 @@ LRESULT CALLBACK ChildWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM 
 	switch (message) {
 
 
-
-
+	default:
+		break;
 
 	}
 	return DefWindowProc(hWnd, message, wParam, lParam);
@@ -21,26 +21,10 @@ void CreateChildWindow(WinDat & wd){
 	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc = ChildWindowProc;
-	wcex.hbrBackground = GetSysColorBrush(COLOR_3DHIGHLIGHT);
+	wcex.hbrBackground = CreateSolidBrush(RGB(51, 153, 255));
 	wcex.lpszClassName = wd._className;
 
-	switch (wd._var) {
-	case 5:
-		wcex.hbrBackground = GetSysColorBrush(COLOR_MENUHILIGHT);
-		break;
-	case 6:
-		wcex.hbrBackground = GetSysColorBrush(COLOR_MENUHILIGHT);
-		break;
-	case 7:
-		wcex.hbrBackground = GetSysColorBrush(COLOR_MENUHILIGHT);
-		break;
-	case 8:
-		wcex.hbrBackground = GetSysColorBrush(COLOR_MENUHILIGHT);
-		break;
-	case 9:
-		wcex.hbrBackground = GetSysColorBrush(COLOR_MENUHILIGHT);
-		break;
-	}
+
 
 
 	RegisterClassEx(&wcex);
