@@ -13,8 +13,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	HINSTANCE hInst = hInstance;
 
 
-	WindowSettings* settings = new WindowSettings();
-	settings->backgroundColor = (RGB(51, 153, 255));
+	settings.backgroundColor = RGB(51, 153, 255);
 
 	
 	//settings->textColor = RGB(0, 0, 0);
@@ -58,7 +57,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	midRightSplit->AttachB(&midRightBottom);
 
 
-
+	settings.backgroundColor = RGB(51, 153, 255);
 
 	CreateChildWindow(topPanel);
 	CreateChildWindow(bottomPanel);
@@ -67,16 +66,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	CreateChildWindow(midRightBottom);
 
 
-	TV_INSERTSTRUCT tvins;
-
-	tvins = { 0 };
-
-	tvins.hInsertAfter = TVI_ROOT;
-	tvins.item.mask = TVIF_TEXT;
-	tvins.item.pszText = L"Root";
-	tvins.item.cchTextMax = 10;
-
-	HTREEITEM hRoot = TreeView_InsertItem(midRightTop._handle, &tvins);
 
 	InitTimelineControl();
 	HWND tl = CreateTimeLineControl(mainWindow._handle);

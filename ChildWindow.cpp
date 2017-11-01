@@ -17,11 +17,12 @@ LRESULT CALLBACK ChildWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM 
 void CreateChildWindow(WinDat & wd){
 
 
+	//settings.backgroundColor = RGB(51, 153, 255);
 	WNDCLASSEX wcex = { 0 };
 	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc = ChildWindowProc;
-	wcex.hbrBackground = CreateSolidBrush(RGB(51, 153, 255));
+	wcex.hbrBackground = CreateSolidBrush(settings.backgroundColor);
 	wcex.lpszClassName = wd._className;
 
 

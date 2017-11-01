@@ -28,10 +28,11 @@ struct WinDat {
 
 struct WindowSettings{
 
-	COLORREF backgroundColor;
-
+	COLORREF darkBackground = RGB(55,55,55);
+	COLORREF lightBackground = RGB(100, 100, 100);
+	COLORREF backgroundColor = RGB(51, 153, 255);
 
 };
 
 
-static WindowSettings* settings;
+static WindowSettings settings;
