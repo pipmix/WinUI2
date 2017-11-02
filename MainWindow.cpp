@@ -1,10 +1,61 @@
 #include "MainWindow.h"
 
+
+
+void CreateMenu(HWND hWnd) {
+
+
+	HMENU menuBar = AddMenuBar(hWnd);
+	HMENU fileCategory = AddMenuCategory(menuBar, L"File");
+	HMENU editCategory = AddMenuCategory(menuBar, L"Edit");
+	
+
+	AddMenuItem(fileCategory, 1, L"New");
+	AddMenuItem(fileCategory, 2, L"Open");
+	AddMenuItem(fileCategory, 3, L"Close");
+
+	AddMenuItem(editCategory, 4, L"Copy");
+	AddMenuItem(editCategory, 5, L"Paste");
+	AddMenuItem(editCategory, 6, L"Cut");
+	AddMenuSeperator(editCategory);
+	AddMenuItem(editCategory, 7, L"Select");
+	AddMenuItem(editCategory, 8, L"Select All");
+	AddMenuSeperator(editCategory);
+	AddMenuItem(editCategory, 9, L"Undo");
+	AddMenuItem(editCategory, 10, L"Redo");
+	AddMenuSeperator(editCategory);
+	HMENU prefSubCategory = AddMenuSubCategory(editCategory, L"Prefrences");
+	AddMenuItem(prefSubCategory, 9, L"Open Prefrences");
+	AddMenuItem(prefSubCategory, 9, L"Delete Prefrences");
+}
+
+
+bool MsgCommand(HWND hWnd, WPARAM wParam) {
+
+	switch (LOWORD(wParam)) {
+
+		default:
+			break;
+
+	}
+	return 1;
+}
+
+
+
+
+
+
+
+
 LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 
 	switch (message) {
 
 	case WM_CREATE:
+
+		CreateMenu(hWnd);
+
 		break;
 	case WM_SIZE: {
 		//WinDat* temp = mainSplit->GetWinDatA();
@@ -18,6 +69,10 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		//MoveWindow(temp->_handle, mainSplit->_x, mainSplit->_y, clientRect.right, temp->_h, 1);
 		}
 		break;
+
+	case WM_COMMAND:
+		return MsgCommand(hWnd, wParam);
+		
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;

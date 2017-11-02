@@ -73,7 +73,7 @@ LRESULT TimeLineLeftClick(TimeLineControl* t, WPARAM wp, LPARAM lp) {
 
 LRESULT CALLBACK TimeLineWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 
-	TimeLineControl* tlc = GetTimeLine(hWnd);
+	TimeLineControl* tlc = (TimeLineControl* )GetWindowLong(hWnd, 0);
 	switch (message) {
 	case WM_NCCREATE:
 		tlc = (TimeLineControl*)malloc(sizeof(TimeLineControl));

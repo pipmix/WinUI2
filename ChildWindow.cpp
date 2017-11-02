@@ -22,7 +22,7 @@ void CreateChildWindow(WinDat & wd){
 	wcex.cbSize = sizeof(WNDCLASSEX);
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc = ChildWindowProc;
-	wcex.hbrBackground = CreateSolidBrush(settings.backgroundColor);
+	wcex.hbrBackground = CreateSolidBrush(RGB(51, 153, 255));
 	wcex.lpszClassName = wd._className;
 
 

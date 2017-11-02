@@ -6,35 +6,24 @@
 #include "TimeLineControl.h"
 
 
+Settings settings;
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
-	HINSTANCE hInst = hInstance;
-
-
-	settings.backgroundColor = RGB(51, 153, 255);
-
-	
-	//settings->textColor = RGB(0, 0, 0);
-	//settings->highlightColor = RGB(255, 128, 64);
-	//settings->font = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
-
-	int divSize = 2;
-	int divTopLocY = 25;
-	int divLeftLocX = 200;
-
 	WinDat mainWindow{ nullptr, nullptr, hInstance, nCmdShow, 100, 100, 1000, 800, L"MainWindowClass", L"This Title", 0, WS_OVERLAPPEDWINDOW };
 	CreateMainWindow(mainWindow);
 
+	settings.Init(mainWindow._handle, hInstance);
+	
 
-	//WinDat topPanel{ nullptr, mainWindow._handle, hInstance, nCmdShow, 0, 0, mainWindow._w, divTopLocY, L"topPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
-	//WinDat leftPanel{ nullptr, mainWindow._handle, hInstance, nCmdShow, 0, divTopLocY + divSize, divLeftLocX, mainWindow._h - (divTopLocY + divSize), L"leftPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
-	//WinDat contentPanel{ nullptr, mainWindow._handle, hInstance, nCmdShow, divLeftLocX + divSize, divTopLocY + divSize, mainWindow._w - (divLeftLocX + divSize) , mainWindow._h - (divTopLocY + divSize), L"contentPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
+	InitTimelineControl();
+	InitSplitControl();
 
-	//CreateChildWindow(topPanel);
-	//CreateChildWindow(leftPanel);
-	//CreateChildWindow(contentPanel);
+
+
+
 
 	
 
@@ -50,6 +39,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	WinDat midRightTop{ nullptr, mainWindow._handle, hInstance, 8, 0, 0, 0, 0, WC_TREEVIEW,  L"", 0, WS_CHILD | WS_VISIBLE | TVS_FULLROWSELECT };
 	WinDat midRightBottom{ nullptr, mainWindow._handle, hInstance, 9, 0, 0, 0, 0, L"midRightBottomPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
 
+	//WinDat splitTest{ nullptr, mainWindow._handle, hInstance, 9, 0, 0, 0, 0, L"SplitClass",  L"", 0, WS_CHILD | WS_VISIBLE };
+
 	mainSplit->AttachA(&topPanel);
 	bottomSplit->AttachB(&bottomPanel);
 	midLeftSplit->AttachA(&midLeft);
@@ -57,7 +48,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	midRightSplit->AttachB(&midRightBottom);
 
 
-	settings.backgroundColor = RGB(51, 153, 255);
+
 
 	CreateChildWindow(topPanel);
 	CreateChildWindow(bottomPanel);
@@ -65,10 +56,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	CreateControlWindow(midRightTop);
 	CreateChildWindow(midRightBottom);
 
+	mainSplit->CreateSplitPane();
+	bottomSplit->CreateSplitPane();
+	midLeftSplit->CreateSplitPane();
+	midRightSplit->CreateSplitPane();
 
-
-	InitTimelineControl();
-	HWND tl = CreateTimeLineControl(mainWindow._handle);
+	
+	//HWND tl = CreateTimeLineControl(mainWindow._handle);
 
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0)){

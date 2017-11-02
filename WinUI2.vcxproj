@@ -151,6 +151,9 @@
     <ClCompile Include="ControlWindow.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="SplitControl.cpp" />
     <ClCompile Include="SplitWindow.cpp" />
     <ClCompile Include="TimeLineControl.cpp" />
   </ItemGroup>
@@ -158,10 +161,16 @@
     <ClInclude Include="ChildWindow.h" />
     <ClInclude Include="ControlWindow.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="pstring.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="SplitControl.h" />
     <ClInclude Include="SplitWindow.h" />
+    <ClInclude Include="TabControl.h" />
     <ClInclude Include="TimeLineControl.h" />
+    <ClInclude Include="Toolbar.h" />
+    <ClInclude Include="TreeView.h" />
     <ClInclude Include="WinDat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

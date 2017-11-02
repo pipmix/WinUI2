@@ -1,6 +1,6 @@
 #pragma once
 #include "SplitWindow.h"
-
+#include "Menu.h"
 
 
 void CreateMainWindow(WinDat& wd);
