@@ -52,6 +52,9 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 
 	switch (message) {
 
+		HMENU hMenu;
+		POINT point;
+
 	case WM_CREATE:
 
 		CreateMenu(hWnd);
@@ -69,6 +72,8 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		//MoveWindow(temp->_handle, mainSplit->_x, mainSplit->_y, clientRect.right, temp->_h, 1);
 		}
 		break;
+
+
 
 	case WM_COMMAND:
 		return MsgCommand(hWnd, wParam);

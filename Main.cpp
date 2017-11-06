@@ -4,7 +4,7 @@
 #include "ChildWindow.h"
 #include "ControlWindow.h"
 #include "TimeLineControl.h"
-
+#include "Button.h"
 
 Settings settings;
 
@@ -20,7 +20,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	InitTimelineControl();
 	InitSplitControl();
-
+	Button but;
+	but.Register();
 
 
 
@@ -62,6 +63,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	midRightSplit->CreateSplitPane();
 
 	
+	Button but01, but02, but03;
+	int tempW = 100;
+	int tempH = 50;
+	int space = 5;
+
+	int startX = 200;
+	int startH = 200;
+	but01.Create(mainWindow._handle, L"CLickMe", startX, startH, tempW, tempH);
+
+	startX += (tempW + space);
+	but02.Create(mainWindow._handle, L"CLick22", startX, startH, tempW, tempH);
+	startX += (tempW + space);
+	but03.Create(mainWindow._handle, L"Clicss333", startX, startH, tempW, tempH);
+	startX += (tempW + space);
 	//HWND tl = CreateTimeLineControl(mainWindow._handle);
 
 	MSG msg;

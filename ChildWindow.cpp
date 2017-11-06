@@ -6,6 +6,10 @@ LRESULT CALLBACK ChildWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM 
 
 	switch (message) {
 
+		case WM_RBUTTONUP:
+			RightClick(hWnd, lParam);
+			break;
+
 
 	default:
 		break;

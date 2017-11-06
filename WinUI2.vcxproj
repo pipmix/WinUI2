@@ -147,23 +147,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="ChildWindow.cpp" />
     <ClCompile Include="ControlWindow.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="RightClick.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SplitControl.cpp" />
     <ClCompile Include="SplitWindow.cpp" />
     <ClCompile Include="TimeLineControl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="ChildWindow.h" />
     <ClInclude Include="ControlWindow.h" />
+    <ClInclude Include="File.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="pstring.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="RightClick.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="SplitControl.h" />
     <ClInclude Include="SplitWindow.h" />

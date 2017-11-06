@@ -4,7 +4,7 @@
 #include <tchar.h>
 #include <Strsafe.h>
 #include "Settings.h"
-
+#include "RightClick.h"
 
 #pragma comment(lib, "user32.lib")
 #pragma comment(lib, "Comctl32.lib")
