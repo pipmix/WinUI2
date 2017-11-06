@@ -6,6 +6,7 @@
 #include "Settings.h"
 #include "RightClick.h"
 
+
 #pragma comment(lib, "user32.lib")
 #pragma comment(lib, "Comctl32.lib")
 
@@ -30,4 +31,20 @@ struct WinDat {
 struct FuncDefine {
 	int id;
 	void* func;
+};
+
+struct WindowData {
+	HWND handle;
+	HWND parent;
+	HINSTANCE instance;
+	int var;
+	int x;
+	int y;
+	int w;
+	int h;
+	LPCWSTR className;
+	LPCWSTR windowName;
+	DWORD exStyles;
+	DWORD styles;
+	
 };

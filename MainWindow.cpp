@@ -34,7 +34,7 @@ bool MsgCommand(HWND hWnd, WPARAM wParam) {
 
 	switch (LOWORD(wParam)) {
 
-		default:
+	default:;
 			break;
 
 	}
@@ -52,8 +52,7 @@ LRESULT CALLBACK MainWindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 
 	switch (message) {
 
-		HMENU hMenu;
-		POINT point;
+
 
 	case WM_CREATE:
 

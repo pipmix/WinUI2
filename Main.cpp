@@ -5,8 +5,10 @@
 #include "ControlWindow.h"
 #include "TimeLineControl.h"
 #include "Button.h"
+#include "Outliner.h"
 
 Settings settings;
+ResourceGraph rg;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -24,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	but.Register();
 
 
-
+	OutLiner outliner;
 
 	
 
@@ -37,8 +39,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	WinDat bottomPanel{ nullptr, mainWindow._handle, hInstance, 6, 0, 0, 0, 0, L"bottomPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
 	//WinDat midLeft{ nullptr, mainWindow._handle, hInstance, 7, 0, 0, mainWindow._w, divTopLocY, L"midLeftPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
 	WinDat midLeft{ nullptr, mainWindow._handle, hInstance, 7, 0, 0, 0, 0, L"midLeftPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
-	WinDat midRightTop{ nullptr, mainWindow._handle, hInstance, 8, 0, 0, 0, 0, WC_TREEVIEW,  L"", 0, WS_CHILD | WS_VISIBLE | TVS_FULLROWSELECT };
-	WinDat midRightBottom{ nullptr, mainWindow._handle, hInstance, 9, 0, 0, 0, 0, L"midRightBottomPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
+	WinDat midRightTop{ nullptr, mainWindow._handle, hInstance, 8, 0, 0, 0, 0, WC_TREEVIEW,  L"", 0, WS_CHILD | WS_VISIBLE | TVS_FULLROWSELECT | TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT  };
+
+
+	//WinDat midRightBottom{ nullptr, mainWindow._handle, hInstance, 9, 0, 0, 0, 0, L"midRightBottomPaneWindowClass",  L"", 0, WS_CHILD | WS_VISIBLE };
+	WinDat midRightBottom{ nullptr, mainWindow._handle, hInstance, 9, 0, 0, 0, 0, WC_TREEVIEW,  L"", 0, WS_CHILD | WS_VISIBLE | TVS_FULLROWSELECT | TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT };
 
 	//WinDat splitTest{ nullptr, mainWindow._handle, hInstance, 9, 0, 0, 0, 0, L"SplitClass",  L"", 0, WS_CHILD | WS_VISIBLE };
 
@@ -55,7 +60,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	CreateChildWindow(bottomPanel);
 	CreateChildWindow(midLeft);
 	CreateControlWindow(midRightTop);
-	CreateChildWindow(midRightBottom);
+
+
+	//CreateChildWindow(midRightBottom);
+	outliner.CreateOutLiner(midRightBottom);
 
 	mainSplit->CreateSplitPane();
 	bottomSplit->CreateSplitPane();
@@ -78,6 +86,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	but03.Create(mainWindow._handle, L"Clicss333", startX, startH, tempW, tempH);
 	startX += (tempW + space);
 	//HWND tl = CreateTimeLineControl(mainWindow._handle);
+
+
+	rg.AddScene("firstScene");
 
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0)){

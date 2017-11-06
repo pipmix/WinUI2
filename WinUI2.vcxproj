@@ -153,6 +153,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Outliner.cpp" />
     <ClCompile Include="RightClick.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SplitControl.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="File.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Outliner.h" />
     <ClInclude Include="pstring.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="RightClick.h" />
